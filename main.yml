@@ -1,0 +1,8 @@
+---
+- import_playbook: 01_dns_configure.yml 
+- import_playbook: 02_subscription_configure.yml
+- import_playbook: 03_postgre_configure.yml
+- import_playbook: 04_flask_configure.yml
+- import_playbook: 05_lb_deploy.yml
+- import_playbook: 06_smoke_tests.yml
+
