@@ -4,6 +4,9 @@
   become: true
   roles:
     - role: dns-configure
+      vars:
+        DNS_IP:
+          - "192.168.50.175"
 
 - name: Configure subscriptions on all host
   hosts: load_balancers,database_servers,app_servers
