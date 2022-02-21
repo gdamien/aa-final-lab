@@ -1,16 +1,15 @@
+[control]
+control.example.com
+
 [load_balancers]
-#frontend1  ansible_ssh_host=frontend1."{{ GUID }}".internal
-lb  ansible_ssh_host=lb.example.com
+lb.example.com
 
 [app_servers]
-#app1  ansible_ssh_host=app1."{{ GUID }}".internal
-#app2  ansible_ssh_host=app2."{{ GUID }}".internal
-web1  ansible_ssh_host=web1.example.com
-web2  ansible_ssh_host=web2.example.com
+web1.example.com
+web2.example.com
 
 [database_servers]
-#appdb1 ansible_ssh_host=appdb1."{{ GUID }}".internal
-db ansible_ssh_host=db.example.com
+db.example.com
 
 [internal:children]
 load_balancers
