@@ -1,0 +1,22 @@
+---
+- name: smoke test
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: smoke test with URI
+      uri:
+        url: "http://lb.example.com"
+        method: GET
+        return_content: yes
+      register: connection_test_result
+
+    - name: Test if url is reachable and content correct
+      debug:
+        msg: "Test Successful"
+      when: connection_test_result.content.find("Meet the Instructors") != -1
+
+    - name: Test if url is reachable and content incorrect
+      debug:
+        msg: "Test Not Okay"
+      when: connection_test_result.content.find("Meet the Instructors") == -1
