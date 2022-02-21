@@ -16,7 +16,7 @@
         msg: "Test Successful"
       when: connection_test_result.content.find("Meet the Instructors") != -1
 
-    - name: Test if url is reachable and content incorrect
+    - name: Test if url is unreachable or content incorrect
       debug:
         msg: "Test Not Okay"
       when: connection_test_result.content.find("Meet the Instructors") == -1
