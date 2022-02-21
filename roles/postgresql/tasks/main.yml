@@ -41,6 +41,8 @@
     enabled: "{{ postgres_service_enabled | default(true) }}"
 
 - name: Configure Postgres resources, user, database etc
+  vars:
+    ansible_python_interpreter: /usr/bin/python2.7
   block:
 
     - name: Setup Postgres database(s)
