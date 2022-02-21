@@ -41,7 +41,9 @@
   roles:
     - role: firewall
       vars:
-        firewall_services: http
-        firewall_tcp_ports: 5000
+        firewall_services: 
+          - http
+        firewall_tcp_ports: 
+          - 5000
     - role: haproxy
 

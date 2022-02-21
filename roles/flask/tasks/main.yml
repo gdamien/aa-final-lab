@@ -45,6 +45,12 @@
     - venv
     - virtualenv
 
+- name: Modify appdb1 to db in app.py
+  ansible.builtin.replace:
+    path: "{{ flask_home }}/{{ flask_app_name }}/app.py"
+    regexp: '@appdb1:'
+    replace: '@db:'
+
 - name: Initialize flask app database resources
   command: "{{ virtualenv_home }}/{{ flask_app_name }}/bin/python3 {{ flask_home }}/{{ flask_app_name }}/config.py"
   run_once: true
