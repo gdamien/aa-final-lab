@@ -1,12 +1,4 @@
 ---
-- name: Gather network facts
-  setup:
-    gather_subset:
-      - 'network'
-  delegate_facts: true
-  delegate_to: localhost
-  connection: local
-
 - name: DNS IP updated
   lineinfile:
     state: present
@@ -14,7 +6,7 @@
     line: "{{ item }}"
   loop:
     - PEERDNS=no
-    - DNS1={{ hostvars.localhost.ansible_default_ipv4.address }}
+    - DNS1=192.168.50.175
   register: network_update
 
 - name: restart network manager
